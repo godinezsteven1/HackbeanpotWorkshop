@@ -8,6 +8,8 @@ This project was created for the **2025 HackBeanpot Hackathon**. In this worksho
 
 ### Step 1:
 ```bash
+npm install
+
 npm run dev
 ```
 ---- 
