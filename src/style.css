@@ -8,12 +8,7 @@ html
 {
     background: #1e1a20;
 }
-/*
-html,
-body
-{
-    overflow: hidden;
-} */
+
 
 .webgl
 {
@@ -22,7 +17,6 @@ body
     left: 0;
     outline: none;
 }
-
 
 .section
 {
@@ -41,4 +35,16 @@ body
 section:nth-child(odd)
 {
     justify-content: flex-end;
+}
+
+
+a {
+    text-decoration: none; /* removes underline */
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #7a213a;
 }

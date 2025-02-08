@@ -4,8 +4,10 @@ import gsap from 'gsap' // little dancy dance
 
 
 const parameters = {
-    materialColor: '#1b1533'
+    materialColor: '#91092e'
 }
+
+
 
 /**
  * Base
@@ -69,6 +71,7 @@ scene.add(mesh1, mesh2, mesh3)
 // why are we adding meshes to an array instead of a group (for those of you have done blender)
 // why is an array better in this case...
 const sectionMeshse = [mesh1, mesh2, mesh3 ]
+
 
 
 
@@ -241,6 +244,44 @@ const tick = () =>
 tick()
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Particles -- if there is time
+ */
+// geometry
+const particlesCount = 200
+const positions = new Float32Array(particlesCount * 3) // 3 values per part z y z
+for (let i = 0; i < particlesCount * 3; i++)
+{
+    positions[i * 3] = (Math.random() - 0.5) * 10
+    positions[i * 3 + 1] = objectDistance * 0.5 - Math.random() * objectDistance * sectionMeshse.length // bc theres 3 objects
+    positions[i * 3 + 2] = (Math.random() - 0.5) * 10
+}
+const particlesGeometry = new THREE.BufferGeometry()
+particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3)) // setting attribute
+// material
+const particlesMaterial = new THREE.PointsMaterial({
+                                                       color: parameters.materialColor,
+                                                       sizeAttenuation: true,
+                                                       size: 0.05,
+                                                   })
+
+// points
+const particles = new THREE.Points(particlesGeometry, particlesMaterial)
+scene.add(particles)
 
 
 
